@@ -1,0 +1,129 @@
+<dataTemplate name="CONTRACT_SUMMARY_POC" version="1.0">
+<properties>
+<property name="xml_tag_case" value="upper"/>
+</properties>
+<parameters>
+<parameter name="P_REPORT_GROUP_NUMBER" dataType="character"/>
+<parameter name="P_REPORT_GROUP_STATUS" dataType="character"/>
+</parameters>
+<dataQuery>
+<sqlStatement name="Q_REPORT_GROUP">
+<![CDATA[ SELECT report_group_id, task_group_id, description, gp_loc, project_name, gl_period, ppfc_funding, ppfc_cost_forecast, ppfc_margin, ppfc_margin_percent, ppfc_actual_cost, ppfc_revenue, ppfc_percent_complete, ppfc_internal_contingency, ppfc_conditional_contingency, ppfc_warranty, ppfc_currency_code, ppcc_funding, ppcc_cost_forecast, ppcc_margin, ppcc_margin_percent, ppcc_actual_cost, ppcc_revenue, ppcc_percent_complete, ppcc_internal_contingency, ppcc_conditional_contingency, ppcc_warranty, ppcc_currency_code, spfc_funding, spfc_cost_forecast, spfc_margin, spfc_margin_percent, spfc_actual_cost, spfc_revenue, spfc_percent_complete, spfc_internal_contingency, spfc_conditional_contingency, spfc_warranty, spfc_currency_code, spcc_funding, spcc_cost_forecast, spcc_margin, spcc_margin_percent, spcc_actual_cost, spcc_revenue, spcc_percent_complete, spcc_internal_contingency, spcc_conditional_contingency, spcc_warranty, spcc_currency_code, ce_funding, ce_cost_forecast, ce_actual_cost, ce_revenue, ce_revenue_adj, ce_currency_code, cr_funding, cr_cost_forecast, cr_margin, cr_margin_percent, cr_actual_cost, cr_revenue, cr_percent_complete, cr_int_contingency, cr_int_contingency_percent, cr_cond_contingency, cr_cond_contingency_percent, cr_warranty, cr_warranty_percent, cr_margin_wo_reserve, cr_margin_wo_reserve_percent, cr_currency_code, unbilled_loss, client_inv_loss, intercompany_loss, total_loss, net_loss, loss_currency_code, cons_level, l2_ce_funding, l2_ce_cost_forecast, l2_ce_actual_cost, l2_ce_revenue, l2_ce_revenue_adj, l2_ce_currency_code, l2_cr_funding, l2_cr_cost_forecast, l2_cr_margin, l2_cr_margin_percent, l2_cr_actual_cost, l2_cr_revenue, l2_cr_percent_complete, l2_cr_int_contingency, l2_cr_int_contingency_percent, l2_cr_cond_contingency, l2_cr_cond_contingency_percent, l2_cr_warranty, l2_cr_warranty_percent, l2_cr_margin_wo_reserve, l2_cr_margin_wo_reserve_perc, l2_cr_currency_code, l2_unbilled_loss, l2_client_inv_loss, l2_intercompany_loss, l2_total_loss, l2_net_loss, l2_loss_currency_code, l2_cons_level FROM apps.bmcdpa_poc_summary WHERE report_group_id = NVL(:p_report_group_number, report_group_id) AND report_group_status = NVL(:p_report_group_status,report_group_status) AND rpt_type = 'S' ORDER BY report_group_id, task_group_id ]]>
+</sqlStatement>
+</dataQuery>
+<dataStructure>
+<group name="G_REPORT_GROUP" dataType="varchar2" source="Q_REPORT_GROUP">
+<element name="REPORT_GROUP_ID" dataType="varchar2" value="REPORT_GROUP_ID"/>
+<element name="TASK_GROUP_ID" dataType="varchar2" value="TASK_GROUP_ID"/>
+<element name="DESCRIPTION" dataType="varchar2" value="DESCRIPTION"/>
+<element name="GP_LOC" dataType="varchar2" value="GP_LOC"/>
+<element name="PROJECT_NAME" dataType="varchar2" value="PROJECT_NAME"/>
+<element name="GL_PERIOD" dataType="varchar2" value="GL_PERIOD"/>
+<element name="REPORT_GROUP_STATUS" dataType="varchar2" value="REPORT_GROUP_STATUS"/>
+<element name="PPFC_FUNDING" dataType="number" value="PPFC_FUNDING"/>
+<element name="PPFC_COST_FORECAST" dataType="number" value="PPFC_COST_FORECAST"/>
+<element name="PPFC_MARGIN" dataType="number" value="PPFC_MARGIN"/>
+<element name="PPFC_MARGIN_PERCENT" dataType="number" value="PPFC_MARGIN_PERCENT"/>
+<element name="PPFC_ACTUAL_COST" dataType="number" value="PPFC_ACTUAL_COST"/>
+<element name="PPFC_REVENUE" dataType="number" value="PPFC_REVENUE"/>
+<element name="PPFC_PERCENT_COMPLETE" dataType="number" value="PPFC_PERCENT_COMPLETE"/>
+<element name="PPFC_INTERNAL_CONTINGENCY" dataType="number" value="PPFC_INTERNAL_CONTINGENCY"/>
+<element name="PPFC_CONDITIONAL_CONTINGENCY" dataType="number" value="PPFC_CONDITIONAL_CONTINGENCY"/>
+<element name="PPFC_WARRANTY" dataType="number" value="PPFC_WARRANTY"/>
+<element name="PPFC_CURRENCY_CODE" dataType="varchar2" value="PPFC_CURRENCY_CODE"/>
+<element name="PPCC_FUNDING" dataType="number" value="PPCC_FUNDING"/>
+<element name="PPCC_COST_FORECAST" dataType="number" value="PPCC_COST_FORECAST"/>
+<element name="PPCC_MARGIN" dataType="number" value="PPCC_MARGIN"/>
+<element name="PPCC_MARGIN_PERCENT" dataType="number" value="PPCC_MARGIN_PERCENT"/>
+<element name="PPCC_ACTUAL_COST" dataType="number" value="PPCC_ACTUAL_COST"/>
+<element name="PPCC_REVENUE" dataType="number" value="PPCC_REVENUE"/>
+<element name="PPCC_PERCENT_COMPLETE" dataType="number" value="PPCC_PERCENT_COMPLETE"/>
+<element name="PPCC_INTERNAL_CONTINGENCY" dataType="number" value="PPCC_INTERNAL_CONTINGENCY"/>
+<element name="PPCC_CONDITIONAL_CONTINGENCY" dataType="number" value="PPCC_CONDITIONAL_CONTINGENCY"/>
+<element name="PPCC_WARRANTY" dataType="number" value="PPCC_WARRANTY"/>
+<element name="PPCC_CURRENCY_CODE" dataType="varchar2" value="PPCC_CURRENCY_CODE"/>
+<element name="SPFC_FUNDING" dataType="number" value="SPFC_FUNDING"/>
+<element name="SPFC_COST_FORECAST" dataType="number" value="SPFC_COST_FORECAST"/>
+<element name="SPFC_MARGIN" dataType="number" value="SPFC_MARGIN"/>
+<element name="SPFC_MARGIN_PERCENT" dataType="number" value="SPFC_MARGIN_PERCENT"/>
+<element name="SPFC_ACTUAL_COST" dataType="number" value="SPFC_ACTUAL_COST"/>
+<element name="SPFC_REVENUE" dataType="number" value="SPFC_REVENUE"/>
+<element name="SPFC_PERCENT_COMPLETE" dataType="number" value="SPFC_PERCENT_COMPLETE"/>
+<element name="SPFC_INTERNAL_CONTINGENCY" dataType="number" value="SPFC_INTERNAL_CONTINGENCY"/>
+<element name="SPFC_CONDITIONAL_CONTINGENCY" dataType="number" value="SPFC_CONDITIONAL_CONTINGENCY"/>
+<element name="SPFC_WARRANTY" dataType="number" value="SPFC_WARRANTY"/>
+<element name="SPFC_CURRENCY_CODE" dataType="varchar2" value="SPFC_CURRENCY_CODE"/>
+<element name="SPCC_FUNDING" dataType="number" value="SPCC_FUNDING"/>
+<element name="SPCC_COST_FORECAST" dataType="number" value="SPCC_COST_FORECAST"/>
+<element name="SPCC_MARGIN" dataType="number" value="SPCC_MARGIN"/>
+<element name="SPCC_MARGIN_PERCENT" dataType="number" value="SPCC_MARGIN_PERCENT"/>
+<element name="SPCC_ACTUAL_COST" dataType="number" value="SPCC_ACTUAL_COST"/>
+<element name="SPCC_REVENUE" dataType="number" value="SPCC_REVENUE"/>
+<element name="SPCC_PERCENT_COMPLETE" dataType="number" value="SPCC_PERCENT_COMPLETE"/>
+<element name="SPCC_INTERNAL_CONTINGENCY" dataType="number" value="SPCC_INTERNAL_CONTINGENCY"/>
+<element name="SPCC_CONDITIONAL_CONTINGENCY" dataType="number" value="SPCC_CONDITIONAL_CONTINGENCY"/>
+<element name="SPCC_WARRANTY" dataType="number" value="SPCC_WARRANTY"/>
+<element name="SPCC_CURRENCY_CODE" dataType="varchar2" value="SPCC_CURRENCY_CODE"/>
+<element name="CE_FUNDING" dataType="number" value="CE_FUNDING"/>
+<element name="CE_COST_FORECAST" dataType="number" value="CE_COST_FORECAST"/>
+<element name="CE_ACTUAL_COST" dataType="number" value="CE_ACTUAL_COST"/>
+<element name="CE_REVENUE" dataType="number" value="CE_REVENUE"/>
+<element name="CE_REVENUE_ADJ" dataType="number" value="CE_REVENUE_ADJ"/>
+<element name="CE_CURRENCY_CODE" dataType="varchar2" value="CE_CURRENCY_CODE"/>
+<element name="CR_FUNDING" dataType="number" value="CR_FUNDING"/>
+<element name="CR_COST_FORECAST" dataType="number" value="CR_COST_FORECAST"/>
+<element name="CR_MARGIN" dataType="number" value="CR_MARGIN"/>
+<element name="CR_MARGIN_PERCENT" dataType="number" value="CR_MARGIN_PERCENT"/>
+<element name="CR_ACTUAL_COST" dataType="number" value="CR_ACTUAL_COST"/>
+<element name="CR_REVENUE" dataType="number" value="CR_REVENUE"/>
+<element name="CR_PERCENT_COMPLETE" dataType="number" value="CR_PERCENT_COMPLETE"/>
+<element name="CR_INT_CONTINGENCY" dataType="number" value="CR_INT_CONTINGENCY"/>
+<element name="CR_INT_CONTINGENCY_PERCENT" dataType="number" value="CR_INT_CONTINGENCY_PERCENT"/>
+<element name="CR_COND_CONTINGENCY" dataType="number" value="CR_COND_CONTINGENCY"/>
+<element name="CR_COND_CONTINGENCY_PERCENT" dataType="number" value="CR_COND_CONTINGENCY_PERCENT"/>
+<element name="CR_WARRANTY" dataType="number" value="CR_WARRANTY"/>
+<element name="CR_WARRANTY_PERCENT" dataType="number" value="CR_WARRANTY_PERCENT"/>
+<element name="CR_MARGIN_WO_RESERVE" dataType="number" value="CR_MARGIN_WO_RESERVE"/>
+<element name="CR_MARGIN_WO_RESERVE_PERCENT" dataType="number" value="CR_MARGIN_WO_RESERVE_PERCENT"/>
+<element name="CR_CURRENCY_CODE" dataType="varchar2" value="CR_CURRENCY_CODE"/>
+<element name="UNBILLED_LOSS" dataType="number" value="UNBILLED_LOSS"/>
+<element name="CLIENT_INV_LOSS" dataType="number" value="CLIENT_INV_LOSS"/>
+<element name="INTERCOMPANY_LOSS" dataType="number" value="INTERCOMPANY_LOSS"/>
+<element name="TOTAL_LOSS" dataType="number" value="TOTAL_LOSS"/>
+<element name="NET_LOSS" dataType="number" value="NET_LOSS"/>
+<element name="LOSS_CURRENCY_CODE" dataType="varchar2" value="LOSS_CURRENCY_CODE"/>
+<element name="CONS_LEVEL" dataType="varchar2" value="CONS_LEVEL"/>
+<element name="CONS_LEVEL1" dataType="varchar2" value="CONS_LEVEL"/>
+<element name="L2_CE_FUNDING" dataType="number" value="L2_CE_FUNDING"/>
+<element name="L2_CE_COST_FORECAST" dataType="number" value="L2_CE_COST_FORECAST"/>
+<element name="L2_CE_ACTUAL_COST" dataType="number" value="L2_CE_ACTUAL_COST"/>
+<element name="L2_CE_REVENUE" dataType="number" value="L2_CE_REVENUE"/>
+<element name="L2_CE_REVENUE_ADJ" dataType="number" value="L2_CE_REVENUE_ADJ"/>
+<element name="L2_CE_CURRENCY_CODE" dataType="varchar2" value="L2_CE_CURRENCY_CODE"/>
+<element name="L2_CR_FUNDING" dataType="number" value="L2_CR_FUNDING"/>
+<element name="L2_CR_COST_FORECAST" dataType="number" value="L2_CR_COST_FORECAST"/>
+<element name="L2_CR_MARGIN" dataType="number" value="L2_CR_MARGIN"/>
+<element name="L2_CR_MARGIN_PERCENT" dataType="number" value="L2_CR_MARGIN_PERCENT"/>
+<element name="L2_CR_ACTUAL_COST" dataType="number" value="L2_CR_ACTUAL_COST"/>
+<element name="L2_CR_REVENUE" dataType="number" value="L2_CR_REVENUE"/>
+<element name="L2_CR_PERCENT_COMPLETE" dataType="number" value="L2_CR_PERCENT_COMPLETE"/>
+<element name="L2_CR_INT_CONTINGENCY" dataType="number" value="L2_CR_INT_CONTINGENCY"/>
+<element name="L2_CR_INT_CONTINGENCY_PERCENT" dataType="number" value="L2_CR_INT_CONTINGENCY_PERCENT"/>
+<element name="L2_CR_COND_CONTINGENCY" dataType="number" value="L2_CR_COND_CONTINGENCY"/>
+<element name="L2_CR_COND_CONTINGENCY_PERCENT" dataType="number" value="L2_CR_COND_CONTINGENCY_PERCENT"/>
+<element name="L2_CR_WARRANTY" dataType="number" value="L2_CR_WARRANTY"/>
+<element name="L2_CR_WARRANTY_PERCENT" dataType="number" value="L2_CR_WARRANTY_PERCENT"/>
+<element name="L2_CR_MARGIN_WO_RESERVE" dataType="number" value="L2_CR_MARGIN_WO_RESERVE"/>
+<element name="L2_CR_MARGIN_WO_RESERVE_PERCENT" dataType="number" value="L2_CR_MARGIN_WO_RESERVE_PERC"/>
+<element name="L2_CR_CURRENCY_CODE" dataType="varchar2" value="L2_CR_CURRENCY_CODE"/>
+<element name="L2_UNBILLED_LOSS" dataType="number" value="L2_UNBILLED_LOSS"/>
+<element name="L2_CLIENT_INV_LOSS" dataType="number" value="L2_CLIENT_INV_LOSS"/>
+<element name="L2_INTERCOMPANY_LOSS" dataType="number" value="L2_INTERCOMPANY_LOSS"/>
+<element name="L2_TOTAL_LOSS" dataType="number" value="L2_TOTAL_LOSS"/>
+<element name="L2_NET_LOSS" dataType="number" value="L2_NET_LOSS"/>
+<element name="L2_LOSS_CURRENCY_CODE" dataType="varchar2" value="L2_LOSS_CURRENCY_CODE"/>
+<element name="L2_CONS_LEVEL" dataType="varchar2" value="L2_CONS_LEVEL"/>
+<element name="L2_CONS_LEVEL1" dataType="varchar2" value="L2_CONS_LEVEL"/>
+</group>
+</dataStructure>
+</dataTemplate>
