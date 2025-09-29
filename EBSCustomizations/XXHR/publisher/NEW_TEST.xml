@@ -1,0 +1,14 @@
+<dataTemplate name="CONTRACT_SUMMARY_POC" version="1.0">
+<properties>
+<property name="xml_tag_case" value="upper"/>
+</properties>
+<parameters>
+<parameter name="P_REPORT_GROUP_NUMBER" dataType="character"/>
+</parameters>
+<dataStructure>
+<group name="G_REPORT_GROUP" dataType="varchar2" source="Q_REPORT_GROUP">
+<element name="REPORT_GROUP_ID" dataType="varchar2" value="REPORT_GROUP_ID"/>
+<element name="TASK_GROUP_ID" dataType="varchar2" value="TASK_GROUP_ID"/>
+</group>
+</dataStructure>
+</dataTemplate>
